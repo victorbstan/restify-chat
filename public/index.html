@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Restify Chat</title>
+  <!-- STYLES -->
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+  <!-- app -->
+  <link rel="stylesheet" href="styles/main.less" type="text/less">
+  <!-- SCRIPTS -->
+  <script src="lib/less/dist/less.js" type="text/javascript"></script>
+  <script src="lib/angular/angular.min.js" type="text/javascript"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap.min.js" type="text/javascript"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+  <!-- app -->
+  <script src="app/app.js" type="text/javascript"></script>
+  <script src="app/controllers/greeting-controller.js" type="text/javascript"></script>
+  <script src="app/controllers/chat-controller.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div class="container">
+    <br>
+    <div class="panel panel-default" ng-controller="chatCtrl">
+      <div class="panel-heading"><h5>Restify Chat</h5></div>
+      <!-- CHAT DISPLAY -->
+      <ul class="list-group">
+        <li ng-repeat="message in messages | orderBy:'createdAt'" class="list-group-item">
+          <small>{{message.createdAt | date:'medium'}}</small> – <b>{{message.nickname}}</b>: {{message.body}}
+        </li>
+      </ul>
+      <div class="panel-footer">
+        <div ng-show="errors" class="alert alert-danger">
+          {{errors}}
+        </div>
+        <!-- CHAT INPUT -->
+        <form ng-submit="submit()" accept-charset="utf-8">
+          <div class="form-group">
+            <input type="text" name="myNickname" ng-model="myNickname" class="form-control input-sm" placeholder="Nickname">
+          </div>
+          <div class="form-group">
+            <textarea name="myBody" ng-model="myBody" class="form-control" placeholder="Message"></textarea>
+          </div>
+          <input type="submit" value="Send" class="btn btn-primary pull-right">
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

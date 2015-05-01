@@ -1,0 +1,25 @@
+# README
+
+## Installation
+
+run `npm install` to instal Node modules.
+
+run `bower install` to install client-side dependencies.
+
+## Everyday
+
+run `Grunt` to verify code style (set to Google).
+
+Don't forget to `--save` or `--save-dev` when installing new packages with NPM or Bower.
+
+`server.js` contains server configuration and routes.
+
+`/app` contains server-side application code.
+
+`/public/app` contains client-side application (Angular) code.
+
+`/public/index.html` is the entry-point to the client-side app.
+
+`/public/lib` is for Bower to use, it puts managed dependencies there.
+Don't forget to update `index.html` with required distribution scripts Bower fetches for you.
+
