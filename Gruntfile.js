@@ -29,6 +29,19 @@ module.exports = function(grunt) {
         fix: true
       }
     },
+    less: {
+      styles: {
+        options: {
+          compress: true
+        },
+        files: {
+          'public/dist/style.css': [
+            'public/lib/bootstrap/dist/css/bootstrap.min.css',
+            'public/styles/main.less'
+          ]
+        }
+      }
+    },
     concat: {
       options: {
         separator: ';',
@@ -46,7 +59,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>', '<%= jscs.src %>'],
-      tasks: ['jshint', 'jscs', 'concat']
+      tasks: ['jshint', 'jscs', 'concat', 'less']
     }
   });
 
@@ -54,7 +67,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('assemble-less');
 
-  grunt.registerTask('default', ['jshint', 'jscs']);
+  grunt.registerTask('default', ['jshint', 'jscs', 'concat', 'less']);
 
 };

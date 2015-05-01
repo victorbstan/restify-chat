@@ -23,5 +23,10 @@ Don't forget to `--save` or `--save-dev` when installing new packages with NPM o
 `/public/index.html` is the entry-point to the client-side app.
 
 `/public/lib` is for Bower to use, it puts managed dependencies there.
-Don't forget to update `Gruntfile.js` `concat: {` section with required distribution scripts Bower fetches for you.
+
+Don't forget to update `Gruntfile.js` `concat: {...` section with required distribution scripts Bower fetches for you.
+
+When adding new stylesheets include them in `Gruntfile.js` `less: {...`. For `less` files, you can use `@import` directives in `main.less` to include other `.less` files.
+
+`public/dist` is where concatenated scripts and styles are saved and requested.
 
