@@ -29,15 +29,31 @@ module.exports = function(grunt) {
         fix: true
       }
     },
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: [
+          'public/lib/less/dist/less.min.js',
+          'public/lib/angular/angular.min.js',
+          'public/lib/angular-bootstrap/ui-bootstrap.min.js',
+          'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
+          'public/app/**/*.js'
+        ],
+        dest: 'public/dist/app.js',
+      },
+    },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'jscs']
+      files: ['<%= jshint.files %>', '<%= jscs.src %>'],
+      tasks: ['jshint', 'jscs', 'concat']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', ['jshint', 'jscs']);
 

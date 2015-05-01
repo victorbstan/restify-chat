@@ -35,3 +35,4 @@ App.controller('chatCtrl', function($scope, $http) {
     }
   };
 });
+

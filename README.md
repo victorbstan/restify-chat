@@ -8,7 +8,9 @@ run `bower install` to install client-side dependencies.
 
 ## Everyday
 
-run `Grunt` to verify code style (set to Google).
+run `grunt` to verify code style (set to Google) and concatenate scripts.
+
+run `grunt watch` to continuously verify sintax and concatenate scripts while you work.
 
 Don't forget to `--save` or `--save-dev` when installing new packages with NPM or Bower.
 
@@ -21,5 +23,5 @@ Don't forget to `--save` or `--save-dev` when installing new packages with NPM o
 `/public/index.html` is the entry-point to the client-side app.
 
 `/public/lib` is for Bower to use, it puts managed dependencies there.
-Don't forget to update `index.html` with required distribution scripts Bower fetches for you.
+Don't forget to update `Gruntfile.js` `concat: {` section with required distribution scripts Bower fetches for you.
 
